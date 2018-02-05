@@ -19,22 +19,44 @@
 	<?php wp_head();?>
 </head>
 
-<body>
+<body> 
+	<?php 
 
-	<div class="blog-masthead">
+		$header_menu = array();
+
+		foreach (wp_get_nav_menu_items(2) as $key => $value) { 
+
+			$header_menu[] = array(
+				'title'	=> $value->post_title,
+				'url'	=> $value->url
+			);
+
+		} 
+
+		//print_r('<pre>');print_r($header_menu);print_r('</pre>');
+
+	?> 
+
+ 	<div class="blog-masthead">
+
 		<div class="container">
+
 			<nav class="blog-nav">
-				<a class="blog-nav-item active" href="#">Home</a>
-				<a class="blog-nav-item" href="#">New features</a>
-				<a class="blog-nav-item" href="#">Press</a>
-				<a class="blog-nav-item" href="#">New hires</a>
-				<a class="blog-nav-item" href="#">About</a>
+
+				<?php foreach ($header_menu as $key => $value): ?>
+
+					<a class="blog-nav-item" href="<?php echo $value['url']; ?>"><?php echo $value['title']; ?></a> 
+
+				<?php endforeach ?>
+
 			</nav>
+
 		</div>
+
 	</div>
 	
 	<div class="container">
-
+		<?php //print_r('<pre>');print_r(wp_get_nav_menu_items(2));print_r('</pre>'); ?>
 		<div class="blog-header">
 			<h1 class="blog-title"><a href="<?php echo get_bloginfo( 'wpurl' );?>"><?php echo get_bloginfo( 'name' ); ?></a></h1>
 			<p class="lead blog-description"><?php echo get_bloginfo( 'description' ); ?></p>
