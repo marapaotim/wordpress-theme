@@ -8,8 +8,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title><?php echo get_bloginfo( 'name' ); ?></title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<title><?php echo get_bloginfo( 'name' ); ?></title> 
 	<link href="<?php echo get_bloginfo( 'template_directory' );?>/blog.css" rel="stylesheet">
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -22,12 +21,14 @@
 <body> 
 	<?php 
 
+		//print_r('<pre>'); print_r(wp_get_nav_menu_items(2)); print_r('</pre>');
+
 		$header_menu = array();
 
 		foreach (wp_get_nav_menu_items(2) as $key => $value) { 
 
 			$header_menu[] = array(
-				'title'	=> $value->post_title,
+				'title'	=> $value->title,
 				'url'	=> $value->url
 			);
 
