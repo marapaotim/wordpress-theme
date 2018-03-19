@@ -38,23 +38,27 @@
 
     endwhile; wp_reset_query(); ?>
 
-<div class="blog-post">  
+<?php if ( have_posts() ): ?>
 
-  <?php foreach ( $posts_blog as $key => $value ): ?>
-    <h2 class="blog-post-title"> <?php echo $value['title']; ?> </h2>
+  <div class="blog-post">  
 
-    <p class="blog-post-meta">
+    <?php foreach ( $posts_blog as $key => $value ): ?>
+      <h2 class="blog-post-title"> <?php echo $value['title']; ?> </h2>
 
-      <?php echo $value[ 'date' ]; ?> by <a href="#"><?php echo strtoupper( $value[ 'author_name' ] ); ?></a>
+      <p class="blog-post-meta">
 
-    </p> 
+        <?php echo $value[ 'date' ]; ?> by <a href="#"><?php echo strtoupper( $value[ 'author_name' ] ); ?></a>
 
-    <img src="<?php echo $value[ 'thumbnail' ]; ?>">
+      </p> 
 
-    <p> <?php echo $value[ 'content ']; ?> </p>
+      <img src="<?php echo $value[ 'thumbnail' ]; ?>">
 
-    <hr>
+      <p> <?php echo $value[ 'content ']; ?> </p>
 
-  <?php endforeach ?> 
-     
-</div> 
+      <hr>
+
+    <?php endforeach ?> 
+       
+  </div>  
+
+<?php endif ?>

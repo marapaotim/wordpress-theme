@@ -21,20 +21,28 @@
 <body> 
 	<?php 
 
-		//print_r('<pre>'); print_r(wp_get_nav_menu_items(2)); print_r('</pre>');
+		$menu = wp_nav_menu(
+		    array (
+		        'echo' => FALSE,
+		        'fallback_cb' => '__return_false'
+		    )
+		);
 
-		$header_menu = array();
+		if ( ! empty ( $menu ) )
+		{
 
-		foreach (wp_get_nav_menu_items(2) as $key => $value) { 
+			$header_menu = array();
 
-			$header_menu[] = array(
-				'title'	=> $value->title,
-				'url'	=> $value->url
-			);
+			foreach (wp_get_nav_menu_items(2) as $key => $value) { 
+
+				$header_menu[] = array(
+					'title'	=> $value->title,
+					'url'	=> $value->url
+				);
+
+			}
 
 		} 
-
-		//print_r('<pre>');print_r($header_menu);print_r('</pre>');
 
 	?> 
 
@@ -44,11 +52,15 @@
 
 			<nav class="blog-nav">
 
-				<?php foreach ($header_menu as $key => $value): ?>
+				<?php if ( ! empty( $header_menu ) ): ?>
 
-					<a class="blog-nav-item" href="<?php echo $value['url']; ?>"><?php echo $value['title']; ?></a> 
+					<?php foreach ($header_menu as $key => $value): ?>
 
-				<?php endforeach ?>
+						<a class="blog-nav-item" href="<?php echo $value['url']; ?>"><?php echo $value['title']; ?></a> 
+
+					<?php endforeach ?> 
+					
+				<?php endif ?>
 
 			</nav>
 
@@ -56,9 +68,4 @@
 
 	</div>
 	
-	<div class="container">
-		<?php //print_r('<pre>');print_r(wp_get_nav_menu_items(2));print_r('</pre>'); ?>
-		<div class="blog-header">
-			<h1 class="blog-title"><a href="<?php echo get_bloginfo( 'wpurl' );?>"><?php echo get_bloginfo( 'name' ); ?></a></h1>
-			<p class="lead blog-description"><?php echo get_bloginfo( 'description' ); ?></p>
-		</div>
+	<div class="container" style="padding-top:70px;"> 
