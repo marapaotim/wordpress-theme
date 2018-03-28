@@ -20,9 +20,9 @@
 	 
 <div id="container"> 
 
-    <div id="content" class="pageContent">  
-
-    <h1 class="entry-title"><?php echo $page_content['title']; ?></h1>  
+    <div id="content" class="pageContent">   
+    	<h1 class="entry-title"><?php echo $page_content['title']; ?></h1>
+    	<div class="border-title"></div> 
 
         <div class="entry-content-page"> 
 

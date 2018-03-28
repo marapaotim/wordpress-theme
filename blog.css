@@ -93,7 +93,39 @@ h6, .h6 {
   color: #999;
 }
 
+div.blog-post hr:first-child{ 
+  background-color:#176d25;
+  height: 2px;
+}
 
+.border-title{
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+  height:10px;
+  width:100%;
+  margin-bottom:15px
+}
+
+.img-whatido-parent{
+    width: auto;
+    height: 360px;
+    margin: auto; 
+}
+.img-whatido-child{
+    background-repeat: no-repeat;
+    height: 100%; 
+    background-size: contain; 
+}
+.img-whatido-child:hover{
+    cursor: pointer; 
+}
+
+ul.home-whatido-border li:last-child{
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+  height:10px;
+  width:50%; 
+}
 /*
  * Main column and sidebar layout
  */
@@ -142,7 +174,6 @@ h6, .h6 {
 }
 .blog-post-title {
   margin-bottom: 5px;
-  font-size: 40px;
 }
 .blog-post-meta {
   margin-bottom: 20px;
@@ -155,7 +186,8 @@ h6, .h6 {
  */
 
 .blog-footer {
-  padding: 40px 0;
+/*  padding: 40px 0;*/
+padding-bottom: 20px;
   color: #999;
   text-align: center;
   background-color: #f9f9f9;
@@ -163,4 +195,7 @@ h6, .h6 {
 }
 .blog-footer p:last-child {
   margin-bottom: 0;
+}
+.footer-menu{
+  margin: 0 auto
 }

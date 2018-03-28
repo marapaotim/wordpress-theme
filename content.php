@@ -40,24 +40,35 @@
 
 <?php if ( have_posts() ): ?>
 
-  <div class="blog-post">  
+  <div class="blog-post">
+      <hr> 
 
-    <?php foreach ( $posts_blog as $key => $value ): ?>
-      <h2 class="blog-post-title"> <?php echo $value['title']; ?> </h2>
+      <h1> What I do </h1> 
 
-      <p class="blog-post-meta">
+      <?php foreach ( $posts_blog as $key => $value ): ?>
 
-        <?php echo $value[ 'date' ]; ?> by <a href="#"><?php echo strtoupper( $value[ 'author_name' ] ); ?></a>
+        <ul class="list-inline home-whatido-border">
+          <li><h3 class="blog-post-title"> <?php echo $value['title']; ?> </h3></li>
+          <li></li>
+        </ul>
+          
 
-      </p> 
+          <!-- <p class="blog-post-meta">
 
-      <img src="<?php echo $value[ 'thumbnail' ]; ?>">
+            <?php echo $value[ 'date' ]; ?> by <a href="#"><?php echo strtoupper( $value[ 'author_name' ] ); ?></a>
 
-      <p> <?php echo $value[ 'content ']; ?> </p>
+          </p> --> 
 
-      <hr>
+          <div class="img-whatido-parent">
+            <div class="img-whatido-child" style="background-image:url(<?php echo $value[ 'thumbnail' ]; ?>);"></div> 
+          </div>
+         <!--  <img src="<?php echo $value[ 'thumbnail' ]; ?>"> -->
 
-    <?php endforeach ?> 
+          <p> <?php echo $value[ 'content' ]; ?> </p>
+
+          <hr>
+
+      <?php endforeach ?> 
        
   </div>  
 

@@ -19,53 +19,47 @@
 </head>
 
 <body> 
-	<?php 
-
+	<?php  
 		$menu = wp_nav_menu(
 		    array (
 		        'echo' => FALSE,
 		        'fallback_cb' => '__return_false'
 		    )
-		);
-
+		); 
 		if ( ! empty ( $menu ) )
-		{
-
-			$header_menu = array();
-
-			foreach (wp_get_nav_menu_items(2) as $key => $value) { 
-
+		{ 
+			$header_menu = array(); 
+			foreach (wp_get_nav_menu_items(2) as $key => $value) {  
 				$header_menu[] = array(
 					'title'	=> $value->title,
 					'url'	=> $value->url
-				);
-
-			}
-
+				); 
+			} 
 		} 
 
 	?> 
 
- 	<div class="blog-masthead">
-
-		<div class="container">
-
-			<nav class="blog-nav">
-
-				<?php if ( ! empty( $header_menu ) ): ?>
-
-					<?php foreach ($header_menu as $key => $value): ?>
-
-						<a class="blog-nav-item" href="<?php echo $value['url']; ?>"><?php echo $value['title']; ?></a> 
-
-					<?php endforeach ?> 
-					
-				<?php endif ?>
-
-			</nav>
-
-		</div>
-
-	</div>
+	<nav class="navbar navbar-default navbar-fixed-top" style="border-bottom: 2px solid #8d9095">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="<?php echo get_bloginfo( 'wpurl' );?>"><?php echo get_bloginfo( 'name' ); ?></a> 
+        </div>
+        <div id="navbar" class="navbar-collapse collapse"> 
+          <ul class="nav navbar-nav navbar-right">
+          		<?php if ( ! empty( $header_menu ) ): ?> 
+					<?php foreach ($header_menu as $key => $value): ?> 
+						<li><a href="<?php echo $value['url']; ?>"><?php echo $value['title']; ?></a></li> 
+					<?php endforeach ?>  
+				<?php endif ?> 
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 	
 	<div class="container" style="padding-top:70px;"> 

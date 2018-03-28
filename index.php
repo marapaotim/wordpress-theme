@@ -6,10 +6,10 @@
       
       <?php if ( is_front_page() ) { ?> 
 
-      <div class="blog-header">
-        <h1 class="blog-title"><a href="<?php echo get_bloginfo( 'wpurl' );?>"><?php echo get_bloginfo( 'name' ); ?></a></h1>
+    <!--   <div class="blog-header">
+        <h1 class="blog-title"></h1>
         <p class="lead blog-description"><?php echo get_bloginfo( 'description' ); ?></p>
-      </div>
+      </div> -->
 
       <?php       
             get_template_part( 'content-page', get_post_format() ); 
