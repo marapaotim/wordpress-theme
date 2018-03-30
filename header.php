@@ -9,7 +9,7 @@
 	<meta name="author" content="">
 
 	<title><?php echo get_bloginfo( 'name' ); ?></title> 
-	<link href="<?php echo get_bloginfo( 'template_directory' );?>/blog.css" rel="stylesheet">
+	<link href="<?php echo get_bloginfo( 'template_directory' );?>/css/blog.css" rel="stylesheet">
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -37,6 +37,9 @@
 			} 
 		} 
 
+        global $wp; 
+        $current_page = explode('/',home_url( $wp->request )); 
+
 	?> 
 
 	<nav class="navbar navbar-default navbar-fixed-top" style="border-bottom: 2px solid #8d9095">
@@ -49,17 +52,46 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="<?php echo get_bloginfo( 'wpurl' );?>"><?php echo get_bloginfo( 'name' ); ?></a> 
-        </div>
+        </div> 
         <div id="navbar" class="navbar-collapse collapse"> 
           <ul class="nav navbar-nav navbar-right">
           		<?php if ( ! empty( $header_menu ) ): ?> 
-					<?php foreach ($header_menu as $key => $value): ?> 
-						<li><a href="<?php echo $value['url']; ?>"><?php echo $value['title']; ?></a></li> 
+					<?php foreach ($header_menu as $key => $value):  
+						$active = '';
+						if (strtolower(end(str_replace('-', ' ', $current_page))) == strtolower($value['title'])){
+							$active = 'active';
+						}
+						if (strtolower(end($current_page)) == 'portfolio' && strtolower($value['title']) == 'home') {
+						 	$active = 'active';
+						} 
+					?>  
+					<li class="<?php echo $active; ?>"><a href="<?php echo $value['url']; ?>"><?php echo $value['title']; ?></a></li> 
 					<?php endforeach ?>  
 				<?php endif ?> 
           </ul>
         </div><!--/.nav-collapse -->
       </div>
-    </nav>
-	
-	<div class="container" style="padding-top:70px;"> 
+    </nav> 
+    <?php
+    	$img_url = '';
+    	switch (strtolower(end(str_replace('-', '', $current_page)))) {
+    		case 'portfolio':
+    			$img_url = '/wp-content/uploads/2018/03/1_hrFhKc1lS4vj63nGdxgezg.png';
+    		break;
+    		case 'aboutme':
+    			$img_url = '/wp-content/uploads/2018/03/2016-brainfood-informationispower-883x432.jpg';
+    		break;
+    		case 'contactme':
+    			$img_url = '/wp-content/uploads/2018/03/images-1.jpg';
+    		break; 
+    	}
+	    if (strtolower(end($current_page)) == 'portfolio') {
+			
+		} 
+    ?>
+    <div class="row">
+		<div class="container-fluid header-img">
+			<img src="<?php echo get_site_url().$img_url; ?>">
+		</div> 
+    </div>
+	<div class="container"> 

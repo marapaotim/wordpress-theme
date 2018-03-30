@@ -1,7 +1,7 @@
     </div> <!-- /.container -->
 
 		<footer class="blog-footer">
-      <div class="footer-menu">
+<!--       <div class="footer-menu">
           <div class="container">
             <nav class="navbar durvet-footer-menu">
               <div class="footer-wrapper">
@@ -20,7 +20,7 @@
                 </div>
             </nav>
           </div>
-        </div>
+        </div> -->
 
         <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
         <p>
@@ -30,6 +30,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="<?php echo get_site_url() ?>/wp-content/themes/wordpress-theme/js/global.js"></script>
 <?php wp_footer(); ?> 
   </body>
 </html>

@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 	if ( have_posts() ):
 
@@ -8,7 +8,7 @@
 
 		    $page_content = array( 
 		    	'title' 	=> get_the_title(),
-		    	'content'	=> get_the_content()  
+		    	'content'	=> 'asd'  
 		    );
 
 		endwhile; wp_reset_query();
@@ -17,16 +17,16 @@
 
 ?>
 
-	 
+ -->	 
 <div id="container"> 
 
     <div id="content" class="pageContent">   
-    	<h1 class="entry-title"><?php echo $page_content['title']; ?></h1>
+    	<h1 class="entry-title"><?php echo get_post_field('post_title', $postid) ?></h1>
     	<div class="border-title"></div> 
 
         <div class="entry-content-page"> 
 
-            <?php echo $page_content['content']; ?> 
+            <?php echo apply_filters( 'the_content', get_post_field('post_content', $postid) ); ?> 
 
         </div>  
   

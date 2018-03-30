@@ -25,24 +25,25 @@
     $posts_blog = array();
 
     while ($the_query->have_posts()) : $the_query->the_post();
+        $categories = get_the_category(); 
+        $cat_name = $categories[0]->cat_name;
+        if(strtolower($cat_name == 'whatido')){ 
+          $posts_blog[] = array(
 
-        $posts_blog[] = array(
+              'title'       => get_the_title(),
+              'content'     => get_the_excerpt(),
+              'date'        => get_the_date() . ' ' . get_the_time(),
+              'author_name' =>  get_the_author(),
+              'thumbnail'   =>  get_the_post_thumbnail_url( get_the_ID(),'full' )
 
-            'title'       => get_the_title(),
-            'content'     => get_the_excerpt(),
-            'date'        => get_the_date() . ' ' . get_the_time(),
-            'author_name' =>  get_the_author(),
-            'thumbnail'   =>  get_the_post_thumbnail_url( get_the_ID(),'full' )
-
-        ); 
+          );
+        } 
 
     endwhile; wp_reset_query(); ?>
 
 <?php if ( have_posts() ): ?>
 
-  <div class="blog-post">
-      <hr> 
-
+  <div class="blog-post"> 
       <h1> What I do </h1> 
 
       <?php foreach ( $posts_blog as $key => $value ): ?>
@@ -64,9 +65,7 @@
           </div>
          <!--  <img src="<?php echo $value[ 'thumbnail' ]; ?>"> -->
 
-          <p> <?php echo $value[ 'content' ]; ?> </p>
-
-          <hr>
+          <p> <?php echo $value[ 'content' ]; ?> </p> 
 
       <?php endforeach ?> 
        
