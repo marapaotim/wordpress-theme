@@ -120,6 +120,7 @@ div.blog-post hr:first-child{
     height: 150px; 
     overflow: hidden;
     margin-bottom: 20px;
+    border: 1px solid #fff;
 }
 
 .img-portfolio-child{ 
@@ -209,7 +210,7 @@ ul.home-whatido-border li:last-child{
 }
 .sidebar-module-inset {
   padding: 15px;
-  background-color: #888689;
+  background-color: #686868;
   border-radius: 4px;
 }
 .sidebar-module-inset p:last-child,
