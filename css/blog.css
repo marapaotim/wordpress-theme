@@ -5,7 +5,7 @@
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   color: #555;
-  overflow-x:hidden;
+  overflow-x:hidden; 
 }
 
 h1, .h1,
@@ -20,6 +20,10 @@ h6, .h6 {
   color: #333;
 }
 
+p, li {
+  font-size: 15px;
+}
+
 
 /*
  * Override Bootstrap's default container.
@@ -27,7 +31,7 @@ h6, .h6 {
 
 @media (min-width: 1200px) {
   .container {
-    width: 970px;
+    width: 970px; 
   }
 }
 
@@ -82,6 +86,23 @@ h6, .h6 {
  * Blog name and description
  */
 
+ .slider-home{
+  margin-top: 20px;
+  border-bottom: 2px solid #A70B0B;
+  padding-bottom: 20px;
+  font-size: 15px;
+ }
+
+.word-experience{ 
+  border-bottom: 2px solid #A70B0B; 
+  font-size: 15px;
+  padding-bottom: 15px;
+ }
+
+ .work-list {
+  border-bottom: 1px solid #999; 
+ }
+
 .blog-header {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -100,6 +121,11 @@ h6, .h6 {
 div.blog-post hr:first-child{ 
   background-color:#176d25;
   height: 2px;
+}
+
+.blog-post p{
+  border-bottom: 1px solid #999;
+  padding-bottom: 10px;
 }
 
 .border-title{
@@ -121,7 +147,7 @@ div.blog-post hr:first-child{
     overflow: hidden;
     margin-bottom: 20px;
     border: 1px solid #fff;
-}
+} 
 
 .img-portfolio-child{ 
   height: 100%; 
@@ -142,6 +168,13 @@ div.blog-post hr:first-child{
   left: 0;
   background-color: rgba(52, 73, 94, 0.75);
 } 
+
+.portfolio-override{
+    border: 2px solid #333333; 
+}
+.portfolio-override span{
+    font-size: 15px;
+}
 
 .img-portfolio-parent:hover .img-portfolio-child,
 .img-portfolio-parent:focus .img-portfolio-child{
@@ -189,10 +222,15 @@ div.blog-post hr:first-child{
   width:100%
 }
 ul.home-whatido-border li:last-child{
-  border-top: 1px solid #999;
-  border-bottom: 1px solid #999;
+  /*border-top: 1px solid #999;
+  border-bottom: 1px solid #999;*/
   height:10px;
   width:50%; 
+} 
+.bio-info {
+  border-bottom: 2px solid #A70B0B;
+  height:auto;
+  overflow:hidden
 }
 /*
  * Main column and sidebar layout
@@ -241,7 +279,7 @@ ul.home-whatido-border li:last-child{
   margin-bottom: 60px;
 }
 .blog-post-title {
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 .blog-post-meta {
   margin-bottom: 20px;
@@ -251,28 +289,59 @@ ul.home-whatido-border li:last-child{
 .blog-sidebar{
   margin-top:10px
 }
-.blog-sidebar h1{
-  margin-top: -6px;
-  text-align: center;
+.blog-sidebar h3{
+  margin-top: 7px; 
   color:#fff;
 } 
+
+.wpcf7-submit{
+  height: 50px;
+  font-size: 20px !important;
+  width: 300px !important;
+}
+.wpcf7-form-control{
+  width: 100%;
+} 
+.send-message{
+      margin-bottom: 20px;
+}
 
 /*
  * Footer
  */
 
 .blog-footer {
-/*  padding: 40px 0;*/
-  padding: 20px 0px;
+/*  padding: 40px 0;
+  padding: 20px 0px;*/
   color: #999;
   text-align: center;
   background-color: #f9f9f9;
-  border-top: 2px solid #8d9095;
+  border-top: 2px solid #8d9095; 
   margin-top: 20px;
 }
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
-.footer-menu{
-  margin: 0 auto
+.wrap {
+  border-bottom: 2px solid #8d9095; 
+  margin-bottom: 10px;
+}
+.wrap li a {
+  color: #777;
+}
+
+.wrap li {
+  height: 100%;
+}
+
+footer .nav{
+    width: 450px;
+    float: none;
+    margin: 0 auto;
+    text-align: center;
+    padding-left: 30px;
+
+ /* width: 450px;
+    float: none;
+    margin: 0 auto;*/
 }

@@ -26,8 +26,8 @@
 
     while ($the_query->have_posts()) : $the_query->the_post();
         $categories = get_the_category(); 
-        $cat_name = $categories[0]->cat_name;
-        if(strtolower($cat_name == 'whatido')){ 
+        $term_id = $categories[0]->term_id;
+        if($term_id == 3){ 
           $posts_blog[] = array(
 
               'title'       => get_the_title(),
@@ -48,12 +48,7 @@
 
       <?php foreach ( $posts_blog as $key => $value ): ?>
 
-        <ul class="list-inline home-whatido-border">
-          <li><h3 class="blog-post-title"> <?php echo $value['title']; ?> </h3></li>
-          <li></li>
-        </ul>
-          
-
+        <h3 class="blog-post-title"> <?php echo $value['title']; ?> </h3>
           <!-- <p class="blog-post-meta">
 
             <?php echo $value[ 'date' ]; ?> by <a href="#"><?php echo strtoupper( $value[ 'author_name' ] ); ?></a>

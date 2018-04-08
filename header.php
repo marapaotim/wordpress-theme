@@ -10,6 +10,8 @@
 
 	<title><?php echo get_bloginfo( 'name' ); ?></title> 
 	<link href="<?php echo get_bloginfo( 'template_directory' );?>/css/blog.css" rel="stylesheet">
+	<link href="<?php echo get_bloginfo( 'template_directory' );?>/fancybox/jquery.fancybox.css?v=2.1.5" media="screen" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -26,9 +28,11 @@
 		        'fallback_cb' => '__return_false'
 		    )
 		); 
+
+		$header_menu = array(); 
+		
 		if ( ! empty ( $menu ) )
 		{ 
-			$header_menu = array(); 
 			foreach (wp_get_nav_menu_items(2) as $key => $value) {  
 				$header_menu[] = array(
 					'title'	=> $value->title,
@@ -37,8 +41,8 @@
 			} 
 		} 
 
-        global $wp; 
-        $current_page = explode('/',home_url( $wp->request )); 
+        // global $wp; 
+        // $current_page = explode('/',home_url( $wp->request )); 
 
 	?> 
 
@@ -51,17 +55,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="<?php echo get_bloginfo( 'wpurl' );?>"><?php echo get_bloginfo( 'name' ); ?></a> 
+          <a class="navbar-brand" href="<?php echo get_bloginfo( 'wpurl' );?>" style="padding:0px"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2018/03/logo_tim.png" title="logo" style="max-height:50px;"></a> 
         </div> 
         <div id="navbar" class="navbar-collapse collapse"> 
           <ul class="nav navbar-nav navbar-right">
           		<?php if ( ! empty( $header_menu ) ): ?> 
 					<?php foreach ($header_menu as $key => $value):  
 						$active = '';
-						if (strtolower(end(str_replace('-', ' ', $current_page))) == strtolower($value['title'])){
+						if (strtolower(end(str_replace('-', ' ', current_page()))) == strtolower($value['title'])){
 							$active = 'active';
 						}
-						if (strtolower(end($current_page)) == 'portfolio' && strtolower($value['title']) == 'home') {
+						if ('portfolio' == strtolower(end(current_page())) && 'home' == strtolower($value['title'])) {
 						 	$active = 'active';
 						} 
 					?>  
@@ -74,7 +78,10 @@
     </nav> 
     <?php
     	$img_url = '';
-    	switch (strtolower(end(str_replace('-', '', $current_page)))) {
+    	switch (strtolower(end(str_replace('-', '', current_page())))) {
+    		default:
+    			$img_url = '/wp-content/uploads/2018/03/1_hrFhKc1lS4vj63nGdxgezg.png';
+    		break;
     		case 'portfolio':
     			$img_url = '/wp-content/uploads/2018/03/1_hrFhKc1lS4vj63nGdxgezg.png';
     		break;
@@ -84,13 +91,13 @@
     		case 'contactme':
     			$img_url = '/wp-content/uploads/2018/03/images-1.jpg';
     		break; 
+    		case 'workexperience': 
+    			$img_url = '/wp-content/uploads/2018/03/workexperience-hero-761.jpg';
+    		break;
     	}
-	    if (strtolower(end($current_page)) == 'portfolio') {
-			
-		} 
     ?>
     <div class="row">
-		<div class="container-fluid header-img">
+		<div class="container-fluid header-img">  
 			<img src="<?php echo get_site_url().$img_url; ?>">
 		</div> 
     </div>

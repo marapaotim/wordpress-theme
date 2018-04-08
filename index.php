@@ -4,12 +4,7 @@
 
     <div class="col-sm-8 blog-main"> 
 
-      <?php if ( is_front_page() ) { ?> 
-
-    <!--   <div class="blog-header">
-        <h1 class="blog-title"></h1>
-        <p class="lead blog-description"><?php echo get_bloginfo( 'description' ); ?></p>
-      </div> -->
+      <?php if ( is_front_page() ) { ?>  
 
       <?php       
             get_template_part( 'tpl/content-page', get_post_format() ); 
@@ -20,6 +15,15 @@
           else{
 
             get_template_part( 'tpl/content-page', get_post_format() ); 
+
+            switch (strtolower(end(str_replace('-', '', current_page())))) {  
+              case 'workexperience': 
+                echo do_shortcode('[work_experience_shortcodes]');
+              break;
+              case 'projects':
+                echo do_shortcode('[portfolio_shortcodes]'); 
+              break;
+            }
 
           }
 

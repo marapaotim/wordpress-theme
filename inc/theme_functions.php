@@ -66,3 +66,8 @@ function theme_enqueue_styles() {
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' ); 
+
+function current_page(){
+    global $wp; 
+    return $current_page = explode('/',home_url( $wp->request )); 
+}
