@@ -66,7 +66,7 @@
         <div class="container">
           <div class="row">
             <p>Webiste Developed by <a href="#">Tim Marapao</a></p> 
-            <ul class="list-inline">
+            <ul class="list-inline social-sites">
               <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true" style="font-size:50px;"></i></a></li>
               <li><a href="#"><i class="fa fa-github" aria-hidden="true" style="font-size:50px;"></i></a></li>
               <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true" style="font-size:50px;"></i></a></li>

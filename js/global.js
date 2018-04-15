@@ -16,8 +16,9 @@ $(function(){
 	}); 
  
  	//$(img_home).css({'filter' : 'grayscale(100%)'})
- 	$(contact_submit).addClass('btn btn-primary');
+ 	$(contact_submit).addClass('btn btn-primary'); 
 });
+
 
 
 // $(img_home).hover(function() {

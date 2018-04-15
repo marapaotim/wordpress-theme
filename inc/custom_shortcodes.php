@@ -8,7 +8,7 @@ function projects_shortcodes_query(){
   ?>
 	<div class="sidebar-module sidebar-module-inset">
 		<h3>Portfolio</h3>
-		<div class="border-title"></div>
+		<div class="border-title-sidebar"></div>
 		<?php foreach (portfolio_sidebar() as $key => $value): ?> 
 			<a class="fancybox" data-fancybox-group="gallery" title="<?php echo $value['title']; ?>" href="<?php echo $value['image']; ?>">
 				<div class="img-portfolio-parent">

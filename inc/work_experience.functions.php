@@ -6,7 +6,7 @@ function work_experience(){
 		'post_type' 		=> 'experiences',
 		'posts_per_page'	=>	-1,
 		'orderby' 			=> 'date',
-		'order' 			=> 'desc', 
+		'order' 			=> 'asc', 
 	);
 
 	$category_query = new WP_Query( $category_query_args ); 

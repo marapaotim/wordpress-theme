@@ -46,7 +46,18 @@
 
 	?> 
 
-	<nav class="navbar navbar-default navbar-fixed-top" style="border-bottom: 2px solid #8d9095">
+	<nav class="navbar navbar-default navbar-fixed-top" style="border-bottom: 2px solid #8d9095"> 
+	<div class="first-header" style="">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row"> 
+						<h4><i class="fa fa-desktop" aria-hidden="true"></i> Software Developer</h4>
+					</div>
+				</div> 
+			</div>
+		</div> 
+	</div>
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -65,7 +76,7 @@
 						if (strtolower(end(str_replace('-', ' ', current_page()))) == strtolower($value['title'])){
 							$active = 'active';
 						}
-						if ('portfolio' == strtolower(end(current_page())) && 'home' == strtolower($value['title'])) {
+						if ('portfolio-tim' == strtolower(end(current_page())) && 'home' == strtolower($value['title'])) {
 						 	$active = 'active';
 						} 
 					?>  
@@ -82,7 +93,7 @@
     		default:
     			$img_url = '/wp-content/uploads/2018/03/1_hrFhKc1lS4vj63nGdxgezg.png';
     		break;
-    		case 'portfolio':
+    		case 'portfolio-tim':
     			$img_url = '/wp-content/uploads/2018/03/1_hrFhKc1lS4vj63nGdxgezg.png';
     		break;
     		case 'aboutme':
@@ -96,8 +107,8 @@
     		break;
     	}
     ?>
-    <div class="row">
-		<div class="container-fluid header-img">  
+	<div class="container-fluid header-img" style="padding-top: 30px">  
+    	<div class="row">
 			<img src="<?php echo get_site_url().$img_url; ?>">
 		</div> 
     </div>
