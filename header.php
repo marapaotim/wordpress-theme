@@ -11,6 +11,7 @@
 	<title><?php echo get_bloginfo( 'name' ); ?></title> 
 	<link href="<?php echo get_bloginfo( 'template_directory' );?>/css/blog.css" rel="stylesheet">
 	<link href="<?php echo get_bloginfo( 'template_directory' );?>/fancybox/jquery.fancybox.css?v=2.1.5" media="screen" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -58,7 +59,7 @@
 			</div>
 		</div> 
 	</div>
-      <div class="container">
+      <div class="container header-second">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -107,9 +108,16 @@
     		break;
     	}
     ?>
-	<div class="container-fluid header-img" style="padding-top: 30px">  
+	<div class="container-fluid header-img text-center" style="padding-top: 30px">  
     	<div class="row">
-			<img src="<?php echo get_site_url().$img_url; ?>">
+			<img src="<?php echo get_site_url().$img_url; ?>"> 
+			<div class="col-sm-6" style="background: #9400D3;padding: 10px 0px;">
+				<span>FRONT END DEVELOPER</span>
+			</div>
+			<div class="col-sm-6" style="background: #DC143C;padding: 10px 0px;">
+				<span>BACK END DEVELOPER</span>
+			</div>
+			</div>
 		</div> 
     </div>
 	<div class="container"> 

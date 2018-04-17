@@ -2,7 +2,7 @@
 
   <div class="row"  style="padding-top: 10px"> 
 
-    <div class="col-sm-8 blog-main"> 
+    <div class="col-sm-9 blog-main"> 
 
       <?php if ( is_front_page() ) { ?>  
 

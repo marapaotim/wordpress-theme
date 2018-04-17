@@ -31,10 +31,14 @@ p, li {
 
 @media (min-width: 1200px) {
   .container {
-    width: 970px; 
+    width: 1170px !important; 
   }
 }
-
+@media screen and (max-width: 768px) {
+  .navbar-toggle{
+    margin-right: 0px !important;
+  }
+}
 
 /*
  * Masthead for nav
@@ -241,6 +245,12 @@ div.blog-post hr:first-child{
   max-height:300px;
   width:100%
 }
+.header-img{
+  color:#fff;
+}
+.header-img span{
+  font-size: 15px;
+}
 ul.home-whatido-border li:last-child{
   /*border-top: 1px solid #999;
   border-bottom: 1px solid #999;*/
@@ -356,7 +366,7 @@ ul.home-whatido-border li:last-child{
 }
 
 footer .nav{
-    width: 450px;
+    width: 460px;
     float: none;
     margin: 0 auto;
     text-align: center;
@@ -366,3 +376,9 @@ footer .nav{
     float: none;
     margin: 0 auto;*/
 }
+/*.footer-menu li {
+  border-right: 2px solid #8d9095; 
+}
+.footer-menu li:first-child {
+  border-left: 2px solid #8d9095;
+}*/

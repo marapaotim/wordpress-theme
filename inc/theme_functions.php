@@ -59,13 +59,13 @@ add_action( 'after_setup_theme', 'my_first_theme_setup' );
 
 
 
-function theme_enqueue_styles() {
+// function theme_enqueue_styles() {
 
-    wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' );
+//     wp_enqueue_style( 'bootstrap', '' );
 
-}
+// }
 
-add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' ); 
+// add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' ); 
 
 function current_page(){
     global $wp; 
