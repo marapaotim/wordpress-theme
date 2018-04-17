@@ -44,23 +44,22 @@
 <?php if ( have_posts() ): ?>
 
   <div class="blog-post"> 
+
       <h1> What I do </h1> 
 
       <?php foreach ( $posts_blog as $key => $value ): ?>
 
-        <h3 class="blog-post-title"> <?php echo $value['title']; ?> </h3>
-          <!-- <p class="blog-post-meta">
-
-            <?php echo $value[ 'date' ]; ?> by <a href="#"><?php echo strtoupper( $value[ 'author_name' ] ); ?></a>
-
-          </p> --> 
-
-          <div class="img-whatido-parent">
-            <div class="img-whatido-child" style="background-image:url(<?php echo $value[ 'thumbnail' ]; ?>);"></div> 
+        <div class="container">
+          <div class="row">
+            <h3 class="blog-post-title"> <?php echo $value['title']; ?> </h3>  
+            <div class="img-whatido-parent col-sm-4 row">
+              <div class="img-whatido-child" style="background-image:url(<?php echo $value[ 'thumbnail' ]; ?>);"></div> 
+            </div> 
+            <div class="col-sm-5">
+              <p> <?php echo $value[ 'content' ]; ?> </p> 
+            </div> 
           </div>
-         <!--  <img src="<?php echo $value[ 'thumbnail' ]; ?>"> -->
-
-          <p> <?php echo $value[ 'content' ]; ?> </p> 
+        </div>
 
       <?php endforeach ?> 
        
