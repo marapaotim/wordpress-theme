@@ -52,10 +52,10 @@
         <div class="container">
           <div class="row">
             <h3 class="blog-post-title"> <?php echo $value['title']; ?> </h3>  
-            <div class="img-whatido-parent col-sm-4 row">
+            <div class="img-whatido-parent col-sm-3 row">
               <div class="img-whatido-child" style="background-image:url(<?php echo $value[ 'thumbnail' ]; ?>);"></div> 
             </div> 
-            <div class="col-sm-5">
+            <div class="col-sm-6">
               <p> <?php echo $value[ 'content' ]; ?> </p> 
             </div> 
           </div>
