@@ -387,4 +387,8 @@ footer .nav{
 
 .footer-menu li:last-child {
   border-right: none;
+} 
+.active a{
+  color:#3399FF !important;
+  font-weight: bold;
 }
