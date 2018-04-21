@@ -54,7 +54,7 @@
                     if (strtolower(end(str_replace('-', ' ', current_page()))) == strtolower($value['title'])){
                       $active = 'active';
                     }
-                    if ('portfolio' == strtolower(end(current_page())) && 'home' == strtolower($value['title'])) {
+                    if ('portfolio-tim' == strtolower(end(current_page())) && 'home' == strtolower($value['title'])) {
                       $active = 'active';
                     } 
                   ?>  

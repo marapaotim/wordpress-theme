@@ -71,3 +71,78 @@ function current_page(){
     global $wp; 
     return $current_page = explode('/',home_url( $wp->request )); 
 }
+
+function time_elapsed_string($datetime, $full = false) {
+ 
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
+ 
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
+ 
+    $string = array(
+        'y' => 'year',
+        'm' => 'month',
+        'w' => 'week',
+        'd' => 'day',
+        'h' => 'hour',
+        'i' => 'minute',
+        's' => 'second',
+    );
+    foreach ($string as $k => &$v) {
+        if ($diff->$k) {
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+        } else {
+            unset($string[$k]);
+        }
+    }
+ 
+    if (!$full) $string = array_slice($string, 0, 1);
+    return $string ? implode(', ', $string) . ' ago' : 'just now';
+}
+
+function _facebook_feeds(){
+    
+    $data  = file_get_contents("https://graph.facebook.com/darktechph/feed?access_token=EAAP9hArvboQBAHfsZC59DH9lrwTWkV3ZCeuyKhVVtN9BwkEs5AiT3ZByRTOJZBrSUHglGUIeuoBT79EDugDfnbzmjZCLU2T8wveC6rYWLcJEBE7iqKljqp0v2NPfRfZArgru3hij9dMY4i7VjHtlLDpCBA5qX6bltGrSk6bUd61yoO3lfAMs7y&limit=10&fields=created_time,from,link,message,picture,type,attachments,source,shares,likes.summary(true),comments.summary(true)");
+    
+    $data = json_decode($data, true); 
+    
+    $feed_item_count = count($data['data']);
+
+    $facebookFeeds = array();
+    for($x=0; $x<$feed_item_count; $x++){
+        $id = $data['data'][$x]['id'];
+        $post_id_arr = explode('_', $id);
+        $post_id = $post_id_arr[1]; 
+
+        $message = $data['data'][$x]['message'];
+
+        $link = $data['data'][$x]['link'];
+
+        $created_time = $data['data'][$x]['created_time'];  
+        
+        $picture = $data['data'][$x]['attachments']['data'][0]['media']['image']['src']; 
+
+        $shares = $data['data'][$x]['shares']['count'];
+
+        $likes = $data['data'][$x]['likes']['summary']['total_count'];
+
+        $comments = $data['data'][$x]['comments']['summary']['total_count'];
+        
+        $converted_date_time = date( 'Y-m-d H:i:s', strtotime($created_time));
+        $ago_value = time_elapsed_string($converted_date_time);
+
+        $facebookFeeds[] = array(
+            'id'    => $post_id,
+            'message' => $message,
+            'link'  => $link,
+            'created_time'  => $ago_value,
+            'image'     => $picture,
+            'shares' => $shares, 
+            'likes' => $likes,
+            'comments' => $comments
+        ); 
+    }
+    return $facebookFeeds;
+}
