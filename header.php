@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,35 +17,30 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-	<?php wp_head();?>
+	<?php wp_head(); ?>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 
-<body> 
-	<?php  
+<body>
+	<?php
+		$header_menu = array();
+		$img_url = array();
 		$menu = wp_nav_menu(
 		    array (
 		        'echo' => FALSE,
-		        'fallback_cb' => '__return_false'
+		        'fallback_cb' => '__return_false',
 		    )
-		); 
-
-		$header_menu = array(); 
-		
-		if ( ! empty ( $menu ) )
-		{ 
-			foreach (wp_get_nav_menu_items(2) as $key => $value) {  
+		);
+		if ( ! empty ( $menu ) ) {
+			foreach (wp_get_nav_menu_items(2) as $key => $value) { 
 				$header_menu[] = array(
 					'title'	=> $value->title,
-					'url'	=> $value->url
-				); 
-			} 
-		} 
-
-        // global $wp; 
-        // $current_page = explode('/',home_url( $wp->request )); 
-
-	?> 
-
+					'url'	=> $value->url,
+          			'images' => wp_get_attachment_image_src( get_post_thumbnail_id( $value->object_id ), 'single-post-thumbnail' ),
+				);
+			}
+		}
+	?>
 	<nav class="navbar navbar-default navbar-fixed-top" style="border-bottom: 2px solid #8d9095"> 
 	<div class="first-header" style="">
 		<div class="container">
@@ -67,8 +61,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="<?php echo get_bloginfo( 'wpurl' );?>" style="padding:0px"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2018/03/logo_tim.png" title="logo" style="max-height:50px;"></a> 
-        </div> 
+          <a class="navbar-brand" href="<?php echo get_bloginfo( 'wpurl' );?>" style="padding:0px"><img src="<?php echo get_template_directory_uri(); ?>/images/logo.jpg" title="logo" style="max-height:50px;"></a> 
+        </div>
         <div id="navbar" class="navbar-collapse collapse"> 
           <ul class="nav navbar-nav navbar-right">
           		<?php if ( ! empty( $header_menu ) ): ?> 
@@ -77,47 +71,15 @@
 						if (strtolower(end(str_replace('-', ' ', current_page()))) == strtolower($value['title'])){
 							$active = 'active';
 						}
-						if ('portfolio-tim' == strtolower(end(current_page())) && 'home' == strtolower($value['title'])) {
+						if (4 >= count(current_page()) && 'home' == strtolower($value['title'])) {
 						 	$active = 'active';
-						} 
+						}
+						$img_url[end(current_page())][] = $value["images"];
 					?>  
-					<li class="<?php echo $active; ?>"><a href="<?php echo $value['url']; ?>"><?php echo $value['title']; ?></a></li> 
-					<?php endforeach ?>  
+					<li class="<?php echo $active; ?>"><a href="<?php echo $value['url']; ?>"><?php echo $value['title']; ?></a></li>
+					<?php endforeach ?>
 				<?php endif ?> 
           </ul>
         </div><!--/.nav-collapse -->
       </div>
-    </nav> 
-    <?php
-    	$img_url = '';
-    	switch (strtolower(end(str_replace('-', '', current_page())))) {
-    		default:
-    			$img_url = '/wp-content/uploads/2018/03/1_hrFhKc1lS4vj63nGdxgezg.png';
-    		break;
-    		case 'portfolio-tim':
-    			$img_url = '/wp-content/uploads/2018/03/1_hrFhKc1lS4vj63nGdxgezg.png';
-    		break;
-    		case 'aboutme':
-    			$img_url = '/wp-content/uploads/2018/03/2016-brainfood-informationispower-883x432.jpg';
-    		break;
-    		case 'contactme':
-    			$img_url = '/wp-content/uploads/2018/03/images-1.jpg';
-    		break; 
-    		case 'workexperience': 
-    			$img_url = '/wp-content/uploads/2018/03/workexperience-hero-761.jpg';
-    		break;
-    	}
-    ?>
-	<div class="container-fluid header-img text-center" style="padding-top: 30px">  
-    	<div class="row">
-			<img src="<?php echo get_site_url().$img_url; ?>"> 
-			<div class="col-sm-6" style="background: #9400D3;padding: 10px 0px;">
-				<span>FRONT END DEVELOPER</span>
-			</div>
-			<div class="col-sm-6" style="background: #DC143C;padding: 10px 0px;">
-				<span>BACK END DEVELOPER</span>
-			</div>
-			</div>
-		</div> 
-    </div>
-	<div class="container"> 
+    </nav>

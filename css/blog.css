@@ -366,13 +366,11 @@ ul.home-whatido-border li:last-child{
   height: 100%;
 }
 
-footer .nav{
-    width: 460px;
+footer .nav {
+    width: 450px;
     float: none;
     margin: 0 auto;
     text-align: center;
-    padding-left: 30px;
-
  /* width: 450px;
     float: none;
     margin: 0 auto;*/
@@ -391,4 +389,16 @@ footer .nav{
 .active a{
   color:#3399FF !important;
   font-weight: bold;
+}
+
+table.about th {
+  width: 35%
+}
+
+table.about {
+  font-size: 15px;
+}
+
+table.about tr {
+  height: 25px;
 }

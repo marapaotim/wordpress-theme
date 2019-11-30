@@ -2,7 +2,6 @@
 require_once('portfolio.functions.php');
 require_once('work_experience.functions.php');
 
-
 function projects_shortcodes_query(){
   ob_start(); 
   ?>
@@ -18,7 +17,7 @@ function projects_shortcodes_query(){
           		</div> 
           	</a>
 		<?php endforeach ?> 
-		<h3>Programming FB Feeds</h3>
+		<!-- <h3>Programming FB Feeds</h3>
 		<div class="border-title-sidebar"></div>
 		<div style="height:300px;overflow-y:scroll;background:#f3f3f1;padding-top:15px">
 			<?php foreach (_facebook_feeds() as $key => $value): ?>  
@@ -32,7 +31,7 @@ function projects_shortcodes_query(){
 				</div>
 			</div> 
 			<?php endforeach ?> 
-		</div>
+		</div> -->
 	</div> 
 <?php 
 	$page = ob_get_contents();
@@ -40,7 +39,6 @@ function projects_shortcodes_query(){
     return $page;
 } 
 add_shortcode('projects_shortcodes', 'projects_shortcodes_query');
-
 
 function portfolio_shortcodes_query(){
   ob_start(); 
